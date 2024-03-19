@@ -82,6 +82,24 @@
 			<version>2.3.3</version>
 		</dependency>
 
+		<!--自定义配置的提示
+		加了@ConfigurationProperties的类中的属性会在配置文件中提示-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.10.1</version> <!-- Replace with the latest version -->
+		</dependency>
 
 	</dependencies>
 

@@ -1,7 +1,7 @@
 package com.example.controller;
 
 import com.example.pojo.Result;
-import com.example.utils.AliOSSUtils;
+import com.example.utils.AliOssUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,11 +14,11 @@ import java.io.IOException;
 @RestController
 public class UploadController {
     @Autowired
-    private AliOSSUtils aliOSSUtils;
+    private AliOssUtils aliOssUtils;
     @PostMapping("/upload")
     public Result upload(MultipartFile image) throws IOException {
         log.info("文件上传" + image.getOriginalFilename());
-        String url = aliOSSUtils.upload(image);
+        String url = aliOssUtils.upload(image);
         return Result.success(url);
     }
 }
