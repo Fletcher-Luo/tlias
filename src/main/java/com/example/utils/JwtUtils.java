@@ -14,7 +14,6 @@ public class JwtUtils {
     private static final long expire = 86400000L;
 
     public static String generateJwt(Map<String, Object> claims) {
-        System.out.println(expire);
         String jwt = Jwts.builder()
                 .addClaims(claims)
                 .signWith(SignatureAlgorithm.HS256, signKey)
