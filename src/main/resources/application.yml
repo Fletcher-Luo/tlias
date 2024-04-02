@@ -18,3 +18,8 @@ aliyun:
   oss:
     endpoint: https://oss-cn-shanghai.aliyuncs.com
     bucket-name: tlias-lfc
+
+# 记录事务的日志
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug

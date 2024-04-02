@@ -4,6 +4,7 @@ import com.example.pojo.Result;
 import com.example.utils.JwtUtils;
 import com.google.gson.Gson;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -14,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 @Component
 public class LoginInterceptor implements HandlerInterceptor {
+    @Autowired
+    private Gson gson;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -25,7 +29,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (jwt == null || jwt.length() == 0) {
             log.info("jwt为空");
             Result error = Result.error("NOT_LOGIN");
-            response.getWriter().write(new Gson().toJson(error));
+            response.getWriter().write(gson.toJson(error));
             return false;
         }
 
@@ -35,7 +39,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             e.printStackTrace();
             log.info("解析令牌失败");
             Result error = Result.error("NOT_LOGIN");
-            response.getWriter().write(new Gson().toJson(error));
+            response.getWriter().write(gson.toJson(error));
             return false;
         }
 
