@@ -16,6 +16,7 @@ public class DeptController {
 
     @GetMapping("/depts")
     public Result list() {
+        System.out.println("hahaha");
         log.info("查询部门全部数据");
         return Result.success(deptService.list());
     }
